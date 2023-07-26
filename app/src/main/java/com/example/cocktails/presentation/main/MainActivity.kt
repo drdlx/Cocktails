@@ -1,4 +1,4 @@
-package com.example.cocktails.app
+package com.example.cocktails.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
