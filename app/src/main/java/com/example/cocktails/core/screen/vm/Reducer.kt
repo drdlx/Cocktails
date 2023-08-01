@@ -1,5 +1,6 @@
 package com.example.cocktails.core.screen.vm
 
+import com.example.cocktails.BuildConfig
 import com.example.cocktails.core.screen.vm.tc.TimeTravelCapsule
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
