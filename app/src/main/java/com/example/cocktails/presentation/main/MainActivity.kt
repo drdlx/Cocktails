@@ -17,14 +17,13 @@ class MainActivity : ComponentActivity() {
         private const val launchEffectName = "Navigator"
     }
 
+// TODO add dagger
 //    @Inject
 //    lateinit var navigator: AppNavigation
     val navigator = AppNavigation()
 
     override fun onResume() {
         super.onResume()
-        val startingDestination = AppScreens.DashboardScreen.route
-        val startingGraph =
         setContent {
             val navigationController = rememberNavController()
 

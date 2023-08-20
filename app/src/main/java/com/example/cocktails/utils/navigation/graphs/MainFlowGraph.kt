@@ -10,25 +10,9 @@ import com.example.cocktails.utils.navigation.AppScreens
 fun NavGraphBuilder.mainFlowGraph(navController: NavController) {
     navigation(startDestination = AppScreens.DashboardScreen.route, route = mainFlowGraph) {
         composable(route = AppScreens.DashboardScreen.route) {
+            // you can init viewmodel here, or add whatever you need to provide the data to the screen
             DashboardScreen()
         }
         // different composable pages go here
     }
-    /*navigation(startDestination = AppScreens.MainAppScreen.route, route = loggedUserGraph) {
-        composable(route = AppScreens.MainAppScreen.route) {
-            val viewModel = hiltViewModel<MainScreenViewModel>()
-            MainPageScreen(
-                uiState = viewModel.uiState
-            )
-        }
-
-        composable(route = AppScreens.TransactionsScreen.route) {
-            val viewModel = hiltViewModel<TransactionsViewModel>()
-            TransactionsScreen(
-                uiState = viewModel.uiState,
-                initDataCallback = viewModel::initScreen,
-                applyFilters = viewModel::loadLocallyFilteredTransactions
-            )
-        }
-    }*/
 }
