@@ -11,17 +11,20 @@ import com.example.cocktails.utils.navigation.graphs.mainFlowGraph
 import com.example.cocktails.utils.navigation.popRouteName
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
     companion object {
         private const val launchEffectName = "Navigator"
     }
 
-    @Inject
-    lateinit var navigator: AppNavigation
+//    @Inject
+//    lateinit var navigator: AppNavigation
+    val navigator = AppNavigation()
+
     override fun onResume() {
         super.onResume()
+        val startingDestination = AppScreens.DashboardScreen.route
+        val startingGraph =
         setContent {
             val navigationController = rememberNavController()
 
@@ -43,7 +46,7 @@ class MainActivity : ComponentActivity() {
                 }.launchIn(this)
             }
 
-            NavHost(navController = navigationController, startDestination = AppScreens.DashboardScreen.route) {
+            NavHost(navController = navigationController, startDestination = mainFlowGraph) {
                 mainFlowGraph(navigationController)
                 // other flow graphs go here
             }

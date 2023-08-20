@@ -12,6 +12,9 @@ sealed class AppScreens(
     val saveState: Boolean = false,
     val popTargetRoute: String = "",
 ) {
-    object DashboardScreen: AppScreens(dashboardScreenRoute)
+    object DashboardScreen: AppScreens(
+        dashboardScreenRoute,
+        NavOptions.Builder().setPopUpTo(0, false).build()
+    )
 
 }

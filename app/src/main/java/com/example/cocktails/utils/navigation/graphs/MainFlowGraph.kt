@@ -8,7 +8,7 @@ import com.example.cocktails.presentation.dashboard.view.DashboardScreen
 import com.example.cocktails.utils.navigation.AppScreens
 
 fun NavGraphBuilder.mainFlowGraph(navController: NavController) {
-    navigation(startDestination = AppScreens.DashboardScreen.route, route = mainGraph) {
+    navigation(startDestination = AppScreens.DashboardScreen.route, route = mainFlowGraph) {
         composable(route = AppScreens.DashboardScreen.route) {
             DashboardScreen()
         }
