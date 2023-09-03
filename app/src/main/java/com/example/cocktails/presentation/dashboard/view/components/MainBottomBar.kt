@@ -23,6 +23,7 @@ fun MainBottomBar(
 ) {
     val screens = listOf(
         AppScreens.DashboardScreen,
+        AppScreens.CocktailsScreen,
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
