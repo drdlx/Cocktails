@@ -15,24 +15,7 @@ import com.example.cocktails.utils.navigation.AppScreens
 
 @Composable
 fun DashboardScreen() {
-    Scaffold(
-        modifier = (Modifier.padding(0.dp)),
-        bottomBar = { MainBottomBar() }
-    ) {
-        Column() {
-            // top bar
-            Row() {
-                Text("Popular drinks")
-            }
-            Row() {
-                Text("Popular ingredients")
-            }
-            Row() {
-                Text("Latest drinks")
-            }
-        }
-    }
-
+    Text("Hello")
 }
 
 @Preview
