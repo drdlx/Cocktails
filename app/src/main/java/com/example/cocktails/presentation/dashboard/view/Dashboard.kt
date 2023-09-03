@@ -19,7 +19,6 @@ fun DashboardScreen() {
         modifier = (Modifier.padding(0.dp)),
         bottomBar = { MainBottomBar() }
     ) {
-
         Column() {
             // top bar
             Row() {
