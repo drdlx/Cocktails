@@ -15,12 +15,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.cocktails.presentation.dashboard.view.components.MainBottomBar
+import com.example.cocktails.presentation.dashboard.view.components.MainTopBar
 import com.example.cocktails.ui.theme.CocktailsTheme
 import com.example.cocktails.utils.navigation.graphs.mainFlowGraph
 
@@ -37,10 +39,14 @@ fun MainHost(navigationController: NavHostController) {
             buttonsVisible.value = bottomBarOffsetHeightPx.floatValue >= -5
         }
 
+        val pageName = navigationController.currentBackStackEntry?.destination?.displayName ?: LocalContext.current.applicationInfo.loadLabel(
+            LocalContext.current.packageManager).toString()         // TODO move it to a ViewModel
+
         Scaffold(
-            modifier = Modifier.bottomBarAnimatedScroll(
+            modifier = Modifier/*.bottomBarAnimatedScroll(
                 height = bottomBarHeight, offsetHeightPx = bottomBarOffsetHeightPx
-            ),
+            )*/,
+            topBar = { MainTopBar(pageName) },
             bottomBar = {
                 MainBottomBar(
                     navController = navigationController,
