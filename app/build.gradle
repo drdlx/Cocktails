@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -63,15 +64,17 @@ dependencies {
     implementation 'androidx.compose.material3:material3'
 
     // Dagger
-    implementation 'com.google.dagger:dagger:2.47'
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'androidx.navigation:navigation-common-ktx:2.7.0'
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.7.0'
-    implementation 'androidx.navigation:navigation-compose:2.7.0'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.47'
+    implementation "com.google.dagger:dagger:2.47"
     implementation 'com.google.dagger:dagger-android:2.47'
-    implementation 'com.google.dagger:dagger-android-support:2.47'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.47'
+    implementation 'com.google.dagger:dagger-android-support:2.47' // if you use the support libraries
+    kapt 'com.google.dagger:dagger-android-processor:2.47'
+    kapt 'com.google.dagger:dagger-compiler:2.47'
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+
+    implementation 'androidx.navigation:navigation-common-ktx:2.7.3'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.7.3'
+    implementation 'androidx.navigation:navigation-compose:2.7.3'
 
     // Tests
     testImplementation 'junit:junit:4.13.2'
