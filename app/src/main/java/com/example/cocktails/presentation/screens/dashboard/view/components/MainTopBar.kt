@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.dashboard.view.components
+package com.example.cocktails.presentation.screens.dashboard.view.components
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api

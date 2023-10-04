@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.dashboard.view.components.elements
+package com.example.cocktails.presentation.screens.dashboard.view.components.elements
 
 import android.content.res.Resources
 import androidx.compose.foundation.Image

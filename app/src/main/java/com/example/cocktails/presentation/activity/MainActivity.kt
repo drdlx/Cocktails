@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.main
+package com.example.cocktails.presentation.activity
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,21 +7,23 @@ import androidx.navigation.compose.rememberNavController
 import com.example.cocktails.presentation.host.MainHost
 import com.example.cocktails.utils.navigation.AppNavigation
 import com.example.cocktails.utils.navigation.popRouteName
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     companion object {
         private const val navigationLaunchEffectName = "Navigator"
     }
 
-    // TODO add dagger
-//    @Inject
-//    lateinit var navigator: AppNavigation
-    private val navigator = AppNavigation()
+    @Inject
+    lateinit var navigator: AppNavigation
 
     override fun onResume() {
         super.onResume()
+
         setContent {
             val navigationController = rememberNavController()
             LaunchedEffect(navigationLaunchEffectName) {
@@ -37,6 +39,7 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                         }
+
                         else -> navigationController.navigate(it.route, it.options)
                     }
                 }.launchIn(this)
