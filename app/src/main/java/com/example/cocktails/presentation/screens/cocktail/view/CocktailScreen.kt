@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -29,19 +28,30 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cocktails.R
+import com.example.cocktails.presentation.screens.cocktail.model.CocktailInfo
+import com.example.cocktails.presentation.screens.cocktail.model.CocktailIngredient
 import com.example.cocktails.presentation.screens.cocktail.view.components.CocktailTag
 
 val paragraphStyle = ParagraphStyle(textIndent = TextIndent(restLine = 12.sp))
 val instructions = listOf("Step 1", "Step 2", "Step 3")
+
 @Composable
 fun CocktailScreen() {
+    val cocktailInfo = CocktailInfo(
+        cocktailName = "Cocktail name",
+        cocktailImageUri = "URI",
+        cocktailTags = listOf("Tag1", "Tag2", "Tag3"),
+        cocktailIngredients = listOf(CocktailIngredient("Ingredient 1", "URI", "Measure")),
+        cocktailInstructions = listOf("Step 1", "Step 2", "Step 3"),
+        cocktailGlass = "Glass",
+        cocktailServing = "Serving",
+        cocktailCategory = "Category",
+    )
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
     ) {
         val padding = 16.dp
-        val viewMaxWidth = maxWidth
-        val viewMaxHeight = maxHeight
         LazyColumn() {
             item {
                 Box(
@@ -52,14 +62,14 @@ fun CocktailScreen() {
                 ) {
                     Image(
                         imageVector = ImageVector.vectorResource(id = R.drawable.ic_launcher_background),
-                        contentDescription = "Cocktail image",
+                        contentDescription = cocktailInfo.cocktailName,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
                             .fillMaxSize()
                     )
                     Text(
                         modifier = Modifier.padding(start = 16.dp, bottom = 16.dp),
-                        text = "Cocktail name",
+                        text = cocktailInfo.cocktailName,
                         style = MaterialTheme.typography.headlineLarge,
                         color = MaterialTheme.colorScheme.onPrimary,
                     )
@@ -67,12 +77,26 @@ fun CocktailScreen() {
             }
             item {
                 LazyRow(modifier = Modifier.padding(top = padding)) {
-                    item { CocktailTag(text = "Tag1", onClick = {}) }
-                    item { CocktailTag(text = "Tag2", onClick = {}) }
-                    item { CocktailTag(text = "Tag3", onClick = {}) }
-                    item { CocktailTag(text = "Tag4", onClick = {}) }
-                    item { CocktailTag(text = "Tag5", onClick = {}) }
-                    item { Row(modifier = Modifier.padding(end = padding)) { CocktailTag(text = "Tag5", onClick = {}) } }
+                    cocktailInfo.cocktailTags.first().also {
+                        item {
+                            Column(modifier = Modifier.padding(start = padding)) {
+                                CocktailTag(
+                                    text = it,
+                                    onClick = {})
+                            }
+                        }
+                    }
+                    if (cocktailInfo.cocktailTags.size > 1) {
+                        for (i in 1..<cocktailInfo.cocktailTags.size) {
+                            item {
+                                Column(modifier = Modifier.padding(start = padding)) {
+                                    CocktailTag(
+                                        text = cocktailInfo.cocktailTags[i],
+                                        onClick = {})
+                                }
+                            }
+                        }
+                    }
                 }
             }
             item {
@@ -110,7 +134,7 @@ fun CocktailScreen() {
                         style = MaterialTheme.typography.headlineMedium,
                         color = MaterialTheme.colorScheme.secondary
                     )
-                    Text("Glass description")
+                    Text(cocktailInfo.cocktailGlass)
                     val serveHeader = "How to serve"
                     Text(
                         modifier = Modifier,
@@ -118,16 +142,9 @@ fun CocktailScreen() {
                         style = MaterialTheme.typography.headlineMedium,
                         color = MaterialTheme.colorScheme.secondary
                     )
-                    Text("How to serve description")
-                    val categoryHeader = "Category"
-                    Text(
-                        modifier = Modifier,
-                        text = categoryHeader,
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.secondary
-                    )
+                    Text(cocktailInfo.cocktailServing)
                     OutlinedButton(onClick = {}) {
-                        Text("Category name")
+                        Text(cocktailInfo.cocktailCategory)
                     }
                     Spacer(modifier = Modifier.height(padding))
                 }
