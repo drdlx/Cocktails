@@ -4,8 +4,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.example.cocktails.presentation.cocktails.CocktailsScreen
-import com.example.cocktails.presentation.dashboard.view.DashboardScreen
+import com.example.cocktails.presentation.screens.cocktails.CocktailsScreen
+import com.example.cocktails.presentation.screens.dashboard.view.DashboardScreen
 import com.example.cocktails.utils.navigation.AppScreens
 
 fun NavGraphBuilder.mainFlowGraph(navController: NavController) {

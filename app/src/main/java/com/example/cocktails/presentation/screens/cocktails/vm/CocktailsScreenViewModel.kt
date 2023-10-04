@@ -1,10 +1,11 @@
-package com.example.cocktails.presentation.cocktails.vm
+package com.example.cocktails.presentation.screens.cocktails.vm
 
 import com.example.cocktails.core.screen.vm.BaseViewModel
 import com.example.cocktails.core.screen.vm.tc.TimeCapsule
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class CocktailsScreenViewModel: BaseViewModel<CocktailsScreenUiState, CocktailsScreenUiEvent>() {
+class CocktailsScreenViewModel @Inject constructor(): BaseViewModel<CocktailsScreenUiState, CocktailsScreenUiEvent>() {
 
     private val reducer = CocktailsScreenReducer(CocktailsScreenUiState.initial())
 

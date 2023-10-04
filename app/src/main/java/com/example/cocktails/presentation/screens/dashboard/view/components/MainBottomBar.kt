@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.dashboard.view.components
+package com.example.cocktails.presentation.screens.dashboard.view.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically

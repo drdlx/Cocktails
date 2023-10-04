@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.dashboard.view
+package com.example.cocktails.presentation.screens.dashboard.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,8 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.cocktails.presentation.dashboard.view.components.MainBottomBar
-import com.example.cocktails.presentation.dashboard.view.components.elements.DashboardItem
+import com.example.cocktails.presentation.screens.dashboard.view.components.MainBottomBar
+import com.example.cocktails.presentation.screens.dashboard.view.components.elements.DashboardItem
 import com.example.cocktails.utils.navigation.AppScreens
 
 @Composable
@@ -33,6 +34,8 @@ fun DashboardScreen() {
         val padding = 16.dp
         val viewMaxWidth = maxWidth
         val viewMaxHeight = maxHeight
+
+        val shape =  RoundedCornerShape(8.dp)
 
         LazyColumn(
             modifier = Modifier.fillMaxWidth(),

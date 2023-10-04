@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.example.cocktails.presentation.dashboard.view.components.MainBottomBar
-import com.example.cocktails.presentation.dashboard.view.components.MainTopBar
+import com.example.cocktails.presentation.screens.dashboard.view.components.MainBottomBar
+import com.example.cocktails.presentation.screens.dashboard.view.components.MainTopBar
 import com.example.cocktails.ui.theme.CocktailsTheme
 import com.example.cocktails.utils.navigation.graphs.mainFlowGraph
 
