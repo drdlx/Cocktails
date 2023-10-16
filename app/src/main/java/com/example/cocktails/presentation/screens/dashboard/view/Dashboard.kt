@@ -22,10 +22,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.cocktails.presentation.screens.dashboard.view.components.MainBottomBar
 import com.example.cocktails.presentation.screens.dashboard.view.components.elements.DashboardItem
+import com.example.cocktails.presentation.screens.dashboard.vm.DashboardViewModel
 import com.example.cocktails.utils.navigation.AppScreens
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(
+    viewModel: DashboardViewModel,
+) {
 
     BoxWithConstraints(
         modifier = Modifier
@@ -55,8 +58,8 @@ fun DashboardScreen() {
     }
 }
 
-@Preview
-@Composable
-fun DashboardScreenPreview() {
-    DashboardScreen()
-}
+//@Preview
+//@Composable
+//fun DashboardScreenPreview() {
+//    DashboardScreen()
+//}

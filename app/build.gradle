@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 }
 
@@ -25,7 +26,17 @@ android {
     }
 
     buildTypes {
+
+        def baseUrl = project.findProperty("BASE_URL") ?: System.getenv("BASE_URL")
+        def apiKey = project.findProperty("API_KEY") ?: System.getenv("API_KEY")
+
+        debug {
+            buildConfigField("String", "BASE_URL", "\"" + baseUrl + "\"")
+            buildConfigField("String", "API_KEY", "\"" + apiKey + "\"")
+        }
         release {
+            buildConfigField("String", "BASE_URL", "\"" + baseUrl + "\"")
+            buildConfigField("String", "API_KEY", "\"" + apiKey + "\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -77,11 +88,24 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.48"
     kapt "com.google.dagger:hilt-android-compiler:2.48"
 
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // Okio/Okhttp3 library
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation "com.google.code.gson:gson:2.8.9"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11"
+
+    // Coil
+    implementation "io.coil-kt:coil:2.4.0"
+    implementation "io.coil-kt:coil-compose:2.4.0"
+
     implementation 'androidx.core:core-ktx:1.10.1'
 
     implementation 'androidx.navigation:navigation-common-ktx:2.7.3'
     implementation 'androidx.navigation:navigation-runtime-ktx:2.7.3'
     implementation 'androidx.navigation:navigation-compose:2.7.3'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.1.0-beta01'
 
     // Tests
     testImplementation 'junit:junit:4.13.2'

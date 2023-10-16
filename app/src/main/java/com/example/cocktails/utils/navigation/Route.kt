@@ -9,6 +9,7 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.NavigationBarItemDefaults.colors
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavOptions
+import com.example.cocktails.core.utils.EMPTY
 
 const val dashboardScreenRoute = "DashboardScreenRoute"
 const val cocktailsScreenRoute = "CocktailsScreenRoute"
@@ -20,8 +21,8 @@ sealed class AppScreens(
     val options: NavOptions? = null,
     val inclusive: Boolean = false,
     val saveState: Boolean = false,
-    val popTargetRoute: String = "",
-    val title: String = "",
+    val popTargetRoute: String = String.EMPTY,
+    val title: String = String.EMPTY,
     val icon: ImageVector = Icons.Default.Person,
 ) {
     object DashboardScreen: AppScreens(
