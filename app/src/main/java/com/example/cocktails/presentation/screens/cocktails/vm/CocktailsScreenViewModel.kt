@@ -1,7 +1,7 @@
 package com.example.cocktails.presentation.screens.cocktails.vm
 
-import com.example.cocktails.core.screen.vm.BaseViewModel
-import com.example.cocktails.core.screen.vm.tc.TimeCapsule
+import com.example.cocktails.core.presentation.vm.BaseViewModel
+import com.example.cocktails.core.presentation.vm.tc.TimeCapsule
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

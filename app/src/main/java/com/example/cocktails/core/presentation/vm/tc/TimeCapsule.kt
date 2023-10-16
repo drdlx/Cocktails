@@ -1,6 +1,6 @@
-package com.example.cocktails.core.screen.vm.tc
+package com.example.cocktails.core.presentation.vm.tc
 
-import com.example.cocktails.core.screen.vm.UiState
+import com.example.cocktails.core.presentation.vm.UiState
 
 interface TimeCapsule<S: UiState> {
     fun addState(state: S)
