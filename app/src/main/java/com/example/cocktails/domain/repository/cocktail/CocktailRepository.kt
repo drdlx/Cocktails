@@ -12,5 +12,6 @@ interface CocktailRepository {
     suspend fun getRandomCocktail(): Cocktail
     suspend fun getCocktailsByName(cocktailName: String): List<Cocktail>
     suspend fun getIngredientById(ingredientId: String): Ingredient
+    suspend fun getCocktailsByAlcoholic(): List<Cocktail>
 
 }

@@ -15,4 +15,7 @@ interface CocktailApiService {
 
     @GET("random.php")
     suspend fun getRandomCocktail(): Response<CocktailsRaw>
+
+    @GET("filter.php?a=Alcoholic")
+    suspend fun getCocktailsByAlcoholic(): Response<CocktailsRaw>
 }

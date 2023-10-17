@@ -1,4 +1,4 @@
-package com.example.cocktails.ui.theme
+package com.example.cocktails.presentation.theme
 
 import android.app.Activity
 import android.os.Build

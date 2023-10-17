@@ -31,9 +31,11 @@ fun CocktailRaw.toCocktail(): Cocktail {
         instructions = instructions,
         drinkThumbnailUrl = this.strDrinkThumb,
         ingredientsWithMeasures = ingredientsWithMeasures,
-        imageUrl = this.strImageSource ?: String.EMPTY,
+        imageUrl = this.strDrinkThumb ?: String.EMPTY,
         strImageAttribution = this.strImageAttribution ?: String.EMPTY,
         strCreativeCommonsConfirmed = creativeCommonsConfirmed,
         dateModified = this.dateModified
     )
 }
+
+fun CocktailsRaw.toCocktails(): List<Cocktail> = this.drinks.map { cocktailRaw -> cocktailRaw.toCocktail() }
