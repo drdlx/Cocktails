@@ -1,4 +1,4 @@
-package com.example.cocktails.presentation.host
+package com.example.cocktails.presentation.screens.host
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -23,7 +23,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.cocktails.presentation.screens.dashboard.view.components.MainBottomBar
 import com.example.cocktails.presentation.screens.dashboard.view.components.MainTopBar
-import com.example.cocktails.ui.theme.CocktailsTheme
+import com.example.cocktails.presentation.theme.CocktailsTheme
 import com.example.cocktails.utils.navigation.graphs.mainFlowGraph
 
 @Composable
