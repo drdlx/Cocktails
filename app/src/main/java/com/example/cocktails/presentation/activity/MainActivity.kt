@@ -4,7 +4,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.rememberNavController
-import com.example.cocktails.presentation.host.MainHost
+import com.example.cocktails.presentation.screens.host.MainHost
 import com.example.cocktails.utils.navigation.AppNavigation
 import com.example.cocktails.utils.navigation.popRouteName
 import dagger.hilt.android.AndroidEntryPoint

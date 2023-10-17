@@ -3,9 +3,8 @@ package com.example.cocktails.presentation.screens.dashboard.vm
 import androidx.lifecycle.viewModelScope
 import com.example.cocktails.core.presentation.vm.BaseViewModel
 import com.example.cocktails.core.presentation.vm.tc.TimeCapsule
+import com.example.cocktails.domain.usecase.cocktails.alcoholic.GetCocktailsByAlcoholicUseCase
 import com.example.cocktails.domain.usecase.cocktails.random.GetRandomCocktailUseCase
-import com.example.cocktails.presentation.coroutines.dispatcher.AppDispatcher
-import kotlinx.coroutines.CoroutineDispatcher
 import com.example.cocktails.presentation.screens.dashboard.model.DashboardUiEvent
 import com.example.cocktails.presentation.screens.dashboard.model.DashboardUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,19 +16,24 @@ import javax.inject.Inject
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
     val getRandomCocktailUseCase: GetRandomCocktailUseCase,
+    val getCocktailsByAlcoholicUseCase: GetCocktailsByAlcoholicUseCase,
 ): BaseViewModel<DashboardUiState, DashboardUiEvent>() {
 
     private val reducer = DashboardScreenReducer(DashboardUiState.initial())
 
     init {
-        viewModelScope.launch {
-            val data = getRandomCocktailUseCase()
-            sendEvent(DashboardUiEvent.ShowData(listOf(data)))
-        }
+        initialLoad()
     }
 
     private fun sendEvent(event: DashboardUiEvent) {
         reducer.sendEvent(event)
+    }
+
+    private fun initialLoad() {
+        viewModelScope.launch {
+            val data = getCocktailsByAlcoholicUseCase()
+            sendEvent(DashboardUiEvent.ShowData(data))
+        }
     }
 
     val timeMachine: TimeCapsule<DashboardUiState>

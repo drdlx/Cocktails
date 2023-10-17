@@ -1,5 +1,7 @@
 package com.example.cocktails.domain.usecase
 
+import com.example.cocktails.domain.usecase.cocktails.alcoholic.GetCocktailsByAlcoholicUseCase
+import com.example.cocktails.domain.usecase.cocktails.alcoholic.GetCocktailsByAlcoholicUseCaseImpl
 import com.example.cocktails.domain.usecase.cocktails.name.GetCocktailsByNameUseCase
 import com.example.cocktails.domain.usecase.cocktails.name.GetCocktailsByNameUseCaseImpl
 import com.example.cocktails.domain.usecase.cocktails.random.GetRandomCocktailUseCase
@@ -20,4 +22,9 @@ interface UseCaseModule {
     @Binds
     @ViewModelScoped
     fun bindRandomCocktailUseCase(getRandomCocktailUseCaseImpl: GetRandomCocktailUseCaseImpl): GetRandomCocktailUseCase
+
+    @Binds
+    @ViewModelScoped
+    fun bindCocktailsByAlcoholicUseCase(getCocktailsByAlcoholicUseCase: GetCocktailsByAlcoholicUseCaseImpl): GetCocktailsByAlcoholicUseCase
+
 }
